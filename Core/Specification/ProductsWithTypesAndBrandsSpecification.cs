@@ -4,6 +4,10 @@ using Core.Entities;
 
 namespace Core.Specification
 {
+  /// <summary>
+  /// Specification defined for returning the types and brands
+  /// with the products returns
+  /// </summary>
   public class ProductsWithTypesAndBrandsSpecification : BaseSpecification<Product>
   {
     public ProductsWithTypesAndBrandsSpecification()
