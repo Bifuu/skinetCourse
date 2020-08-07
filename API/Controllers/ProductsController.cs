@@ -44,7 +44,7 @@ namespace API.Controllers
     public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
     {
       var spec = new ProductsWithTypesAndBrandsSpecification(id);
-      var product = await _productsRepo.GetEntityWithSepc(spec);
+      var product = await _productsRepo.GetEntityWithSpec(spec);
 
       if (product == null) return NotFound(new ApiResponse(404));
 

@@ -26,7 +26,7 @@ namespace Infrastructure.Data
       return await _context.Set<T>().ToListAsync();
     }
 
-    public async Task<T> GetEntityWithSepc(ISpecification<T> spec)
+    public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
     {
       return await ApplySpecification(spec).FirstOrDefaultAsync();
     }
