@@ -7,29 +7,29 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace API.Extensions
 {
-  public static class ApplicationServicesExtensions
-  {
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    public static class ApplicationServicesExtensions
     {
-      services.AddScoped<IProductRepository, ProductRepository>();
-      services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
-      services.Configure<ApiBehaviorOptions>(options =>
-      {
-        options.InvalidModelStateResponseFactory = actionContext =>
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-          var errors = actionContext.ModelState.Where(e => e.Value.Errors.Count > 0).SelectMany(x => x.Value.Errors).Select(x => x.ErrorMessage).ToArray();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-          var errorResponse = new ApiValidationErrorResponse
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = actionContext =>
           {
-            Errors = errors
-          };
+                  var errors = actionContext.ModelState.Where(e => e.Value.Errors.Count > 0).SelectMany(x => x.Value.Errors).Select(x => x.ErrorMessage).ToArray();
 
-          return new BadRequestObjectResult(errorResponse);
-        };
-      });
+                  var errorResponse = new ApiValidationErrorResponse
+                  {
+                      Errors = errors
+                  };
 
-      return services;
+                  return new BadRequestObjectResult(errorResponse);
+              };
+            });
+
+            return services;
+        }
     }
-  }
 }
