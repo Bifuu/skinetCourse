@@ -34,5 +34,6 @@ namespace Core.Interfaces
         /// <param name="spec">The specification class of desired results</param>
         /// <returns></returns>
         Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec);
+        Task<int> CountAsync(ISpecification<T> spec);
     }
 }
