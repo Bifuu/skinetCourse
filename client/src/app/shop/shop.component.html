@@ -49,9 +49,15 @@
             style="width: 300px;"
             class="form-control mr-2"
             placeholder="Search"
+            #search
+            (keyup.enter)="onSearch()"
           />
-          <button class="btn btn-outline-primary my-2">Search</button>
-          <button class="btn btn-outline-success my-2 ml-2">Reset</button>
+          <button (click)="onSearch()" class="btn btn-outline-primary my-2">
+            Search
+          </button>
+          <button (click)="onReset()" class="btn btn-outline-success my-2 ml-2">
+            Reset
+          </button>
         </div>
       </div>
 
