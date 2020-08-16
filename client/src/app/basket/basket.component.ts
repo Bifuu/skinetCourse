@@ -21,11 +21,11 @@ export class BasketComponent implements OnInit {
     this.basketService.removeItemFromBasket(item);
   }
 
-  incrementItemQuantity(item: IBasketItem) {
+  incrementItemQuantity(item: IBasketItem): void {
     this.basketService.incrementItemQuantity(item);
   }
 
-  decrementItemQuantity(item: IBasketItem) {
+  decrementItemQuantity(item: IBasketItem): void {
     this.basketService.deccrementItemQuantity(item);
   }
 }
