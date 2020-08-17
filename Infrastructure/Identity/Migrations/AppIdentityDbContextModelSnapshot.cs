@@ -38,6 +38,9 @@ namespace Infrastructure.Identity.Migrations
                     b.Property<string>("State")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Street")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ZipCode")
                         .HasColumnType("TEXT");
 
