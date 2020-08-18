@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center mt-5">
   <div class="col-3">
-    <form class="form-signin" _lpchecked="1">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Login</h1>
       </div>
@@ -11,6 +11,7 @@
           id="inputEmail"
           class="form-control"
           placeholder="Email address"
+          formControlName="email"
         />
         <label for="inputEmail">Email address</label>
       </div>
@@ -21,6 +22,7 @@
           id="inputPassword"
           class="form-control"
           placeholder="Password"
+          formControlName="password"
         />
         <label for="inputPassword">Password</label>
       </div>

@@ -17,7 +17,7 @@ export class AccountService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(values: any): Observable<void> {
-    return this.http.post(this.baseUrl + 'acount/login', values).pipe(
+    return this.http.post(this.baseUrl + 'account/login', values).pipe(
       map((user: IUser) => {
         if (user) {
           localStorage.setItem('token', user.token);
