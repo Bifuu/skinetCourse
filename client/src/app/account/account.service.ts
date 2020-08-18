@@ -50,6 +50,7 @@ export class AccountService {
       map((user: IUser) => {
         if (user) {
           localStorage.setItem('token', user.token);
+          this.currentUserSource.next(user);
         }
       })
     );
@@ -62,6 +63,6 @@ export class AccountService {
   }
 
   checkEmailExists(email: string): Observable<object> {
-    return this.http.get(this.baseUrl + '/account/emailexists?email=' + email);
+    return this.http.get(this.baseUrl + 'account/emailexists?email=' + email);
   }
 }
