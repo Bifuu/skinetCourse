@@ -14,6 +14,26 @@
           formControlName="email"
         />
         <label for="inputEmail">Email address</label>
+        <span
+          class="text-danger"
+          *ngIf="
+            loginForm.get('email').touched &&
+            loginForm.get('email').invalid &&
+            loginForm.get('email').errors['required']
+          "
+        >
+          E-mail address is required
+        </span>
+        <span
+          class="text-danger"
+          *ngIf="
+            loginForm.get('email').touched &&
+            loginForm.get('email').invalid &&
+            loginForm.get('email').errors['pattern']
+          "
+        >
+          E-mail address is not valid
+        </span>
       </div>
 
       <div class="form-label-group">
@@ -25,10 +45,32 @@
           formControlName="password"
         />
         <label for="inputPassword">Password</label>
+        <span
+          class="text-danger"
+          *ngIf="
+            loginForm.get('password').touched &&
+            loginForm.get('password').invalid &&
+            loginForm.get('password').errors['required']
+          "
+        >
+          Password is required
+        </span>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button
+        class="btn btn-lg btn-primary btn-block"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
         Sign in
       </button>
     </form>
+  </div>
+
+  <div class="col-4">
+    <p>Form Status: {{ loginForm.status }}</p>
+    <p>Email Status: {{ loginForm.get("email").status }}</p>
+    <p>Email Touched: {{ loginForm.get("email").touched }}</p>
+    <p>Email Dirty: {{ loginForm.get("email").dirty }}</p>
+    <pre>{{ loginForm.value | json }}</pre>
   </div>
 </div>

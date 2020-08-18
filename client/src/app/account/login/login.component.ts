@@ -20,7 +20,10 @@ export class LoginComponent implements OnInit {
 
   createLoginForm() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$'),
+      ]),
       password: new FormControl('', Validators.required),
     });
   }
