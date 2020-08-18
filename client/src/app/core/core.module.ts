@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { SectionHeadComponent } from './section-head/section-head.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    SharedModule,
   ],
   exports: [NavBarComponent, SectionHeadComponent],
 })
