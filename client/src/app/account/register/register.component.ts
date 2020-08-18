@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     this.createRegisterForm();
   }
 
-  createRegisterForm() {
+  createRegisterForm(): void {
     this.registerForm = this.fb.group({
       displayName: [null, [Validators.required]],
       email: [
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.accountService.register(this.registerForm.value).subscribe(
       (response) => {
         this.router.navigateByUrl('/shop');

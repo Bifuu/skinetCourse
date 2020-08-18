@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       this.activatedRoute.snapshot.queryParams.returnUrl || '/shop';
   }
 
-  createLoginForm() {
+  createLoginForm(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.accountService.login(this.loginForm.value).subscribe(
       () => {
         this.router.navigateByUrl(this.returnUrl);

@@ -16,7 +16,7 @@ export class AccountService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  loadCurrentUser(token: string) {
+  loadCurrentUser(token: string): Observable<any> {
     if (token === null) {
       this.currentUserSource.next(null);
       return of(null);
