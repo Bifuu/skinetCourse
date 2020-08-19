@@ -21,7 +21,7 @@ namespace Infrastructure.Services
             _orderRepo = orderRepo;
         }
 
-        public async Task<Order> CreadteOrderAsync(string buyerEmail, int deliveryMethodId, string basketId, Address shippingAddress)
+        public async Task<Order> CreateOrderAsync(string buyerEmail, int deliveryMethodId, string basketId, Address shippingAddress)
         {
             var basket = await _basketRepo.GetBasketAsync(basketId);
 
