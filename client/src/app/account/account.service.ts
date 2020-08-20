@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { IUser } from '../shared/models/user';
+import { IAddress } from '../shared/models/address';
 
 @Injectable({
   providedIn: 'root',
@@ -63,7 +64,17 @@ export class AccountService {
     this.router.navigateByUrl('/');
   }
 
-  checkEmailExists(email: string): Observable<object> {
-    return this.http.get(this.baseUrl + 'account/emailexists?email=' + email);
+  checkEmailExists(email: string): Observable<boolean> {
+    return this.http.get<boolean>(
+      this.baseUrl + 'account/emailexists?email=' + email
+    );
+  }
+
+  getUserAddress(): Observable<IAddress> {
+    return this.http.get<IAddress>(this.baseUrl + 'account/address');
+  }
+
+  updateUserAddress(address: IAddress): Observable<IAddress> {
+    return this.http.put<IAddress>(this.baseUrl + 'account/address', address);
   }
 }
