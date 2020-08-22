@@ -1,4 +1,22 @@
-<p>checkout-payment works!</p>
+<div class="mt-4" [formGroup]="checkoutForm">
+  <div class="row">
+    <div class="form-group col-12" formGroupName="paymentForm">
+      <app-text-input
+        [label]="'Name on card'"
+        formControlName="nameOnCard"
+      ></app-text-input>
+    </div>
+    <div class="form-group col-6">
+      <div class="form-control py-3" #cardNumber></div>
+    </div>
+    <div class="form-group col-3">
+      <div class="form-control py-3" #cardExpiry></div>
+    </div>
+    <div class="form-group col-3">
+      <div class="form-control py-3" #cardCvc></div>
+    </div>
+  </div>
+</div>
 
 <div
   class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5"
