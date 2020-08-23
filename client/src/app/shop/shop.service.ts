@@ -25,11 +25,11 @@ export class ShopService {
 
   constructor(private http: HttpClient) {}
 
-  setShopParams(params: ShopParams) {
+  setShopParams(params: ShopParams): void {
     this.shopParams = params;
   }
 
-  getShopParams() {
+  getShopParams(): ShopParams {
     return this.shopParams;
   }
 
